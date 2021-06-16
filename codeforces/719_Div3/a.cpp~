@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define MAX 1000000
+#define ll long long 
+//#define for(i,n) for(int i; i <n;++i)
+
+vector<char> st;
+bool find(char s) {
+    bool flag = false;  
+    for(auto &x: st) {
+        if(x == s)
+            flag = true;
+    }
+    return flag;
+}
+void test_case() {
+    int n;
+    string str;
+    bool flag = true;
+    cin >> n;
+    cin >> str;
+    st.push_back(str[0]);
+    for(int i = 1;i <= n-1; i++) {
+        if(str[i] != str[i-1]) {
+            if(!find(str[i])) {
+                st.push_back(str[i]);
+            } else {
+                flag = false;
+            }
+        } 
+    }
+    if(flag == true) {
+		cout << "YES" << endl;
+	} else {
+		cout << "NO" << endl;
+	}
+
+
+}
+
+
+int main() {
+    int t;
+    cin >> t;
+    for(int i = 0;i <  t; i++) {
+        test_case();
+    }
+	return 0;
+}
+                                                                                               

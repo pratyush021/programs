@@ -1,0 +1,33 @@
+<html>
+<body>
+<button onclick="myFun()">Click Me</button>
+<p id="demo"></p>
+
+<script>
+function myFun()
+{
+var str = "The best things in life are free";
+var patt = /e/g;
+var res = patt.exec(str);
+for(var i=0;i<res.length;i++){
+   document.getElementById("demo").innerHTML = res[i];
+  }
+}
+</script>
+<ul type="number">
+    <li> Apple</li>
+    <li> Mango</li>
+    <li> Orange</li>
+    </ul>
+    <td>Quality Level</td>
+		<td> <input type="text" name="" id="qlevel" required="true">
+		    <datalist id="qlevel">
+		        <option value="Select Quality Level..">Select Quality Level..</option>
+		        <option value="Level01">Level01</option>
+		        <option value="Level02">Level02</option>
+		        <option value="Level03">Level03</option>
+		    </datalist>
+		</td>
+
+</body>
+</html>

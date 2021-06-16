@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+void print(int arr[], int n) {
+	for(int i =0; i < n; i++) {
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+}
+int getMinDiff_brute(int arr[], int n, int k) {
+	int sum= 0;
+	//find avg and adjust the values according to the avg value 
+	for(int i =0; i < n; i++) {
+		sum += arr[i];
+	}
+	int avg = sum/n;
+	for(int i = 0; i < n; i++) {
+		if(arr[i] > avg) 
+			arr[i] -= k;
+		else 
+			arr[i] += k;
+	}
+	sort(arr, arr+n);
+	return (arr[n-1]-arr[0]);
+}
+int getMinDiff(int arr[], int n , int k) {
+	//mantain min and max heights and return the difference 
+	int min = arr[0];
+	int max = arr[1];
+   	int temp; // to compare 	
+	for(int i = 0; i < n; i++) {
+		if(arr[i] + k > max) 
+			max = arr[i] + k;
+	   if(arr[i] -k < min) 
+	   		min = arr[i] - k;	   
+	}
+
+	return max-min;
+}
+int main() {
+	int n, k;
+	cin >> k >> n;
+	int arr[n];
+	for(int i=0; i<n;i++) {
+		cin >> arr[i];
+	}
+	cout << getMinDiff(arr, n, k) << endl;
+	return 0;
+}

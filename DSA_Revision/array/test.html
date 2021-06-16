@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sedar Medical College Admission</title>
+    <style>
+        input[type="number"],
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: 98%;
+        }
+
+        body {
+            background-image: url('Sedar.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 60%;
+            font-weight: bold;
+        }
+
+        div {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            color: #FFFFFF;
+            font-size: 20px;
+        }
+
+        h3 {
+            /* Fill  the attributes and values */
+            color: #FFFFFF;
+            background-color: #00CCFF;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            width: 50%;
+            font-family: Verdana;
+            padding: 5px;
+            border-radius: 6px;
+        }
+
+        table,
+        td,
+        tr {
+            border: solid 2px black;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            border-spacing: 1px;
+            border-radius: 6px;
+            color: #009900;
+            background-color: #F2F2F2;
+            padding: 1px;
+            /* Fill  the attributes and values */
+        }
+
+        ::-webkit-input-placeholder {
+            color: #696969;
+            font-weight: bold;
+        }
+
+        #submit {
+            /* Fill  the attributes and values */
+            color: #FFFFFF;
+            background-color: #00CCFF;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 5px;
+            width: 50%;
+            font-family: Verdana;
+            font-weight: bold;
+            border-radius: 6px;
+        }
+
+        #result {
+            /* Fill  the attributes and values */
+            color: #FFFFFF;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+
+
+        <h3>
+            <!-- Fill the heading text -->
+            Sedar Medical College Admission
+        </h3>
+
+
+        <form onsubmit="return display()">
+
+            <table>
+                <tr>
+                    <td>Student Name</td>
+                    <td>
+                        <!-- Fill the code for Student Name -->
+                        <input type="text" name="sname" id="sname" required placeholder="Enter the student name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone Number</td>
+                    <td>
+                        <!-- Fill the code for Phone Number -->
+                        <input type="text" name="phno" id="phno" placeholder="Enter the phone number" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Admission Id</td>
+                    <td>
+                        <!-- Fill the code for Admission Id -->
+                        <input type="text" name="aid" id="aid" placeholder="Enter the admission id" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date of Admission</td>
+                    <td>
+                        <!-- Fill the code for Date of Admission -->
+                        <input type="date" name="admissiondate" id="admissiondate" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Department Name</td>
+                    <td>
+                        <!-- Fill the code for Department Name -->
+                        <select name="deptname" id="deptname" required>
+                            <option value="Select Department..">Select Department..</option>
+                            <option value="MBBS">MBBS</option>
+                            <option value="BDS">BDS</option>
+                            <option value="BHMS">BHMS</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Prefer College Hostel</td>
+                    <td>
+                        <!-- Fill the code for Prefer College Hostel -->
+                        <input type="radio" name="preferHostel" id="yes" value="yes" required>Yes
+                        <input type="radio" name="preferHostel" id="no" value="no" required>No
+                    </td>
+                </tr>
+                <tr>
+                    <td>First Graduate</td>
+                    <td>
+                        <!-- Fill the code for First Graduate -->
+                        <input type="checkbox" name="firstGraduate" id="firstGraduate">Click if you are first graduate
+                    </td>
+                </tr>
+            </table>
+
+            <p><input type="submit" id="submit" name="submit" value="CONFIRM ADMISSION" /></p>
+
+            <div id="result"></div>
+
+        </form>
+    </div>
+    <!--Write necessary code wherever needed to complete this code challenge  -->
+    <script>
+        // Do not use let or const keyword to initialize a javascript variable. Instead use var.
+
+        function display() {
+            /* Fill  the Javascript code to display the message after calculation the fees */
+            var fees = { MBBS: [2300000, 90000, 96000], BDS: [1500000, 80000, 96000], BHMS: [1235000, 95000, 96000] }
+            var studentName = document.getElementById("sname").value;
+            var ifHostel = (document.forms[0].preferHostel.value == "yes");
+            var course = document.getElementById("deptname").value; 
+            var fstgra = document.getElementById("firstGraduate").checked;
+            var admissionFee = fees[course][0];
+            var tutionFee = fees[course][1];
+            var hostelFee = (ifHostel) ? fees[course][2] : 0;
+            var discvalue = (fstgra) ? 25000 : 0;
+            var collegeFee = admissionFee + tutionFee + hostelFee - discvalue;
+            document.getElementById("result").innerHTML = "Hi " + studentName + ",<br>Your Admission Fee is Rs." + admissionFee + "<br>Tution Fee is Rs." + tutionFee + "<br>Hostel Fee is Rs." + hostelFee + "<br>Total College Fee is Rs." + collegeFee;
+
+            return false;
+        }
+
+    </script>
+</body>
+
+</html>
