@@ -12,7 +12,7 @@ struct elecount{
 vector<int> calc(int arr[], int n , int k) {
 	struct elecount temp[k-1];
 	if(k < 2)
-		return ;
+		return {};
 	//initializing all count to 0
 	for(int i=0; i < k-1; i++) {
 		temp[i].c = 0;
