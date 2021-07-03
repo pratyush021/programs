@@ -5,6 +5,6 @@ int main() {
     int n = 10;
 	for(i, n) {
 		cout << i << endl;
+    
 	}
-
 }
