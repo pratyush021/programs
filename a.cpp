@@ -1,45 +1,31 @@
 #include<bits/stdc++.h>
 using namespace std;
-#define MAX 1000
-#define ll long long 
-//#define for(i,n) for(int i = 0; i <n;++i)
+#define MAX 10000
 void test_case() {
-	int n, count = 0;
-	cin >> n;
-	int arr[MAX];
-	for(int i = 0; i < n; i++) {
-		cin >> arr[i];
-	}
-	int i = 0, j = n-1;
-	int max = arr[0], min = arr[0];
-	for(int i = 0; i < n; i++) {
-		if(arr[i] >= max) {
-			max = arr[i];
-		}
-		if(arr[i] <= min ) {
-			min = arr[i];
+	int arr[MAX][MAX];
+	int n;
+	for(int i = 0; i < 3; i++) {
+		for(int j =0; j < 3; j++) {
+			if(i!= 1 && j != 1) {
+				cin >> n;
+				arr[i][j]= n;
+			}
 		}
 	}
-	bool flag1 = false, flag2 = false;
-	while(i < j) {
-		if(arr[i] == min || arr[i] == max) {
-			flag1 = true;
-		} else if(arr[j] == min || arr[j] == max) {
-			flag2 == true;
+	for(int i =0; i < 3; i++) {
+		for(int j = 0; j < 3; j++) {
+			cout << arr[i][j] << " ";
 		}
-		i++;
-		j--;
-		count++;
+		cout << endl;
 	}
-	cout << count << endl;
-	cout << "+++++++++++++++++" << endl;
+
 }
-int main() {
+int main(){
 	int t;
 	cin >> t;
-	for(int i = 0; i< t; i++) {
+	for(int i = 0; i < t; i++) {
+		cout << "Case #"<<i+1<<" ";
 		test_case();
+		cout << endl;
 	}
-	return 0;
 }
-
