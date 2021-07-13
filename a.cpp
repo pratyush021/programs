@@ -2,30 +2,51 @@
 using namespace std;
 #define MAX 10000
 void test_case() {
-	int arr[MAX][MAX];
-	int n;
-	for(int i = 0; i < 3; i++) {
-		for(int j =0; j < 3; j++) {
-			if(i!= 1 && j != 1) {
-				cin >> n;
-				arr[i][j]= n;
+	long long a, b, c, d, e, f, g, h, i, m;
+	int count = 0;
+	cin >> a >> b >> c;
+	cin >> d >> f;
+	cin >> g >> h >> i;
+	unordered_map<int, int> map;
+	int sum = (a + i) /2 ;
+	map[sum]++;
+	sum = (g + c) /2;
+	map[sum]++;
+	sum = (d + f) /2;
+	map[sum]++;
+	sum = (b + h) / 2;
+	map[sum]++;
+	m = map[sum];
+	for (auto x : map) {
+		  // cout << x.first << " " << x.second << endl;
+			if(m <= x.second) {
+				e = x.first;
+				m = x.second;
 			}
-		}
 	}
-	for(int i =0; i < 3; i++) {
-		for(int j = 0; j < 3; j++) {
-			cout << arr[i][j] << " ";
-		}
-		cout << endl;
-	}
+	//rows
+	if(abs(a+c)/2 == b){ count++; }
+	if(abs(d+f)/2 == e){ count++; }
+	if(abs(g+i)/2 == h){ count++; }
+
+	//cols
+	if(abs(a+g)/2 == d){ count++; }
+	if(abs(b+h)/2 == e){ count++; }
+	if(abs(c+i)/2 == f){ count++; }
+
+	//diagonals
+	if(abs(a+i)/2 == e){ count++; }
+	if(abs(c+g)/2 == e){ count++; }
+	cout << count << endl;
+
+
 
 }
 int main(){
 	int t;
 	cin >> t;
 	for(int i = 0; i < t; i++) {
-		cout << "Case #"<<i+1<<" ";
+		cout << "Case #"<<i+1<<": ";
 		test_case();
-		cout << endl;
 	}
 }
