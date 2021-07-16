@@ -1,21 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
-int get_max(int arr[], int n, int start, int end) {
-	int max = arr[end];
-	for(int i = start; i < end; i++) {
-		if(arr[i] > max) {
-			max = arr[i];
-		}
-	}
-	return max;
-}
 int trappingWater(int arr[], int n){
     int right, left;
     int sum = 0;
     for(int i = 0; i < n; i++) {
-    	left = get_max(arr, n, 0, i);
-    	right = get_max(arr, n, i+1, n);
-    	sum += (min(left, right) - arr[i]);
+    	left = arr[i];
+	for(int j = 0; j < i; i++) {
+		left = max(arr[i], left);
+	}
+	right = arr[i];
+	for(int j = i + 1; j < n; j++) {
+		right = max(arr[i], right);
+	}
+	sum += (max(right, left) - arr[i]);
     }
     if(sum < 0) {
     	sum = 0;
