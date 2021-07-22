@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\programs\\programs.csproj": {}
+    "C:\\personal\\programs\\programs.csproj": {}
   },
   "projects": {
-    "F:\\programs\\programs.csproj": {
+    "C:\\personal\\programs\\programs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\programs\\programs.csproj",
+        "projectUniqueName": "C:\\personal\\programs\\programs.csproj",
         "projectName": "programs",
-        "projectPath": "F:\\programs\\programs.csproj",
+        "projectPath": "C:\\personal\\programs\\programs.csproj",
         "packagesPath": "C:\\Users\\probo\\.nuget\\packages\\",
-        "outputPath": "F:\\programs\\obj\\",
+        "outputPath": "C:\\personal\\programs\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\probo\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -52,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

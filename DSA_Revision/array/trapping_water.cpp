@@ -1,23 +1,26 @@
 #include<bits/stdc++.h>
 using namespace std;
 int trappingWater(int arr[], int n){
-    int right, left;
-    int sum = 0;
+    //left[i] contains height of the tallest bar to the left including ith bar itself
+    int left[n];
+
+    int right[n];
+    int water = 0;
+
+    //filling the left array
+    left[0] = arr[0];
+    for(int i = 1; i < n; i++) {
+      left[i] = max(left[i-1], arr[i]);
+    }
+    //filling the right array
+    right[n-1] = arr[n-1];
+    for(int i = n-2; i >= 0; i--) {
+      right[i] = max(right[i+1], arr[i]);
+    }
     for(int i = 0; i < n; i++) {
-    	left = arr[i];
-	for(int j = 0; j < i; i++) {
-		left = max(arr[i], left);
-	}
-	right = arr[i];
-	for(int j = i + 1; j < n; j++) {
-		right = max(arr[i], right);
-	}
-	sum += (max(right, left) - arr[i]);
+      water += min(left[i], right[i])-arr[i];
     }
-    if(sum < 0) {
-    	sum = 0;
-    }
-    return sum;
+    return water;
 }
 int main() {
 	int n;
@@ -30,8 +33,7 @@ int main() {
 	return 0;
 }
 /*
-input: 
+input:
 6
 3 0 0 2 0 4
 */
-
