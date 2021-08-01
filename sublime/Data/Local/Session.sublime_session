@@ -16,6 +16,14 @@
 				"selected_items":
 				[
 					[
+						"font",
+						"font-size\tproperty"
+					],
+					[
+						"back",
+						"background-color\tproperty"
+					],
+					[
 						"re",
 						"reverseString"
 					],
@@ -36,26 +44,10 @@
 			"buffers":
 			[
 				{
-					"file": "/C/programs/DSA_Revision/array/string_rotation.cpp",
+					"file": "/C/Users/probo/Documents/test.html",
 					"settings":
 					{
-						"buffer_size": 300,
-						"encoding": "UTF-8",
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"settings":
-					{
-						"buffer_size": 0,
-						"line_ending": "Windows"
-					}
-				},
-				{
-					"file": "/C/programs/DSA_Revision/array/frequency_nk.cp",
-					"settings":
-					{
-						"buffer_size": 637,
+						"buffer_size": 1474,
 						"encoding": "UTF-8",
 						"line_ending": "Windows"
 					}
@@ -93,9 +85,10 @@
 			},
 			"file_history":
 			[
+				"/C/programs/DSA_Revision/array/frequency_nk.cp",
+				"/C/programs/DSA_Revision/array/string_rotation.cpp",
 				"/C/programs/DSA_Revision/array/print_duplicates.cpp",
 				"/C/programs/DSA_Revision/array/revers_string.cpp",
-				"/C/programs/DSA_Revision/array/frequency_nk.cp",
 				"/C/programs/DSA_Revision/array/consecutive_subsequence.cpp",
 				"/C/programs/DSA_Revision/array/fre",
 				"/C/programs/DSA_Revision/array/common_elements.cpp",
@@ -145,87 +138,34 @@
 			"groups":
 			[
 				{
-					"selected": 2,
+					"selected": 0,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/C/programs/DSA_Revision/array/string_rotation.cpp",
+							"file": "/C/Users/probo/Documents/test.html",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 300,
+								"buffer_size": 1474,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										229,
-										229
+										1414,
+										1236
 									]
 								],
 								"settings":
 								{
-									"syntax": "Packages/C++/C++.sublime-syntax"
+									"syntax": "Packages/HTML/HTML.sublime-syntax",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
 								},
 								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 2,
-							"type": "text"
-						},
-						{
-							"buffer": 1,
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 0,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										0,
-										0
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/Text/Plain text.tmLanguage"
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 1,
-							"type": "text"
-						},
-						{
-							"buffer": 2,
-							"file": "/C/programs/DSA_Revision/array/frequency_nk.cp",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 637,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										394,
-										394
-									]
-								],
-								"settings":
-								{
-									"syntax": "Packages/C++/C++.sublime-syntax"
-								},
-								"translation.x": 0.0,
-								"translation.y": 0.0,
+								"translation.y": 664.8,
 								"zoom_level": 1.0
 							},
 							"stack_index": 0,

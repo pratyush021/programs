@@ -1,25 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
-void findMinDiff(vector<int> a, int n, int m) {
-  int arr[n];
-  int N = n;
-  if(n==0 || m ==0) {
+int findMinDiff(vector<int> a, int n, int m) {
+  int idx=0;
+  cout << endl;
+  if(m ==0 || n == 0)
     return 0;
-  }
-  if(n < m) {
+  sort(a.begin(), a.end());
+  if(n<m)
     return -1;
+  int min_diff = INT_MAX;
+  for(int i = 0; i < n-m+1; i++) {
+    int diff = a[i+m-1]-a[i];
+    if(diff < min_diff) {
+      min_diff = diff;
+    }
   }
-  for (auto it = a.end()-1; it != a.begin(); --it) {
-      arr[N-1] = *it;
-      N--;
-  }
-  sort(arr, arr+n);
-  int diff = arr[m-1]-arr[0];
-  for(int i =0; i < n-m-1; i++) {
-    diff = min(diff, arr[m+i-1]-arr[i]);
-  }
-  return diff;
-
+  return min_diff;
 }
 
 int main() {
@@ -30,8 +26,8 @@ int main() {
     cin>> temp;
     a.push_back(temp);
   }
-  // cout << findMinDiff(a, n, m) << endl;
-  findMinDiff(a, n, m);
+  cout << findMinDiff(a, n, m) << endl;
+  // findMinDiff(a, n, m);
   return 0;
 }
 /*

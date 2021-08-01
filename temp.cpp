@@ -40,6 +40,37 @@ void test_case() {
   // cout <<"cunt" << endl;
 }
 
+void test(){
+  int n;
+  cin >> n;
+  int s=0, m=0, l=0;
+  int mm, temp;
+  temp = n;
+  if(n == 0) {
+    return 0;
+  }
+  if(n<=6) {
+    return 15;
+  }
+  while(temp >= 10) {
+    temp = temp / 10;
+    l++;
+  }
+  while(temp >= 8 && temp < 10) {
+    temp = temp / 8;
+    m++;
+  }
+  while (temp > 0) {
+    temp = temp / 6;
+    s++;
+  }
+  l = l * 15;
+  m = m * 20;
+  s = s * 25;
+  mm = min(s, m);
+  return min(l, mm);
+}
+
 int main() {
   int t;
   cin >> t;
