@@ -15,7 +15,7 @@ public:
                 // cout << word << endl;
                 if(word != " ") {
                 // boost::algorithm::to_lower(str); 
-                transform(word.begin(), word.end(), word.begin(), ::tolower);
+                // transform(word.begin(), word.end(), word.begin(), ::tolower);
                 sol.push_back(word);
                 }
                 word = "";
@@ -26,7 +26,7 @@ public:
             }
         }
         // cout << word << endl;
-        // sol.push_back(word);
+        sol.push_back(word);
         return sol;
     }
     string mostCommonWord(string paragraph, vector<string>& banned) {
@@ -35,29 +35,50 @@ public:
         // vector<pair<int, string>> so;
         unordered_map<string, int> sol;
         v = removeDupWord(paragraph);
+        reverse(v.begin(), v.end());
+
         for(auto a: v) {
+            string temp = a;
             sol[a]++;
-            m = max(sol[a], m);
         }
         string ans = "";
         for(auto b : banned) {
+            for(auto a: v) {
 
-            
+                if(a == b || a=="") {
+                    sol.erase(a);
+                }
+            }
+        }
+        for(auto x : sol) {
+            m = max(m, x.second);
         }
         for(auto x : sol) {
             if(x.second == m) {
                 ans += x.first;
                 break;
             }
+
         }
+        // for(auto x: v) {
+        //     cout << x << " ";
+        // }
+        // cout << endl;
+        // for(auto x: sol) {
+        //     cout << x.first << " "<<x.second << endl;
+        // }
+        // cout << m << endl;
         return ans;
     }
 };
 
 int main() {
     string str;
-    str = "Bob hit a ball, the hit BALL flew far after it was hit.";
+    str = "Bob hit a ball, the hit BALL ball fleW flEw flew far after it was hit.";
     vector<string> banned = {"hit"};
+    // str = "a";
+    // vector<string> banned = {""};
+
     Solution s;
     string sol=s.mostCommonWord(str, banned);
     cout << sol << endl;
