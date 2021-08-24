@@ -2,15 +2,7 @@
 using namespace std;
 #define MAX 100000
 #define ll long long
-static string s;
-bool check(string a, string s) {
-  for(int i =0; i < s.size(); i++) {
-    if(s[i] == a[i]) {
-      return false;
-    }
-  }
-  return true;
-}
+
 void rotate(string &s)
 {
     reverse(s.begin(), s.begin()+1);
@@ -21,44 +13,24 @@ vector<string> anagram(string input){
   std::vector<string> ss;
     sort(input.begin(), input.end());
     do
-    // if(s[0] != input[0] && s[s.size()-1] != input[s.size()-1]) {
-    if(check(input, s)==true) {
-    
         ss.push_back(input);
-      }
     while(next_permutation(input.begin(), input.end()));
     return ss;
 }
-
+bool check(string a, string s) {
+  for(int i =0; i < s.size(); i++) {
+    if(s[i] == a[i]) {
+      return false;
+    }
+  }
+  return true;
+}
 void test_case() {
-  // string s;
+  string s;
   bool flag = true, f = false;
   cin >> s;
-  string a = s;
-  // bool flag = true,  f= true;
-  // string a = s;
-  // for(int i=0; i < s.size(); i++) {
-  //   rotate(s);
-  //   for(int k = 0; k < s.size(); k++) {
-  //       if(a[k] == s[k]) {
-  //         flag = false;
-  //       }
-  //   }
-  //   if(flag == true) {
-  //       f = false;
-  //       // reverse(s.begin(), s.end());
-  //       cout << s << endl;
-  //       return;
-  //
-  //   }
-  //
-  // }
-  // if(f = true) {
-  //   cout << "IMPOSSIBLE" << endl;
-  // }
   std::vector<string> sol;
-  sol = anagram(a);
-  // cout << sol.size() << endl;
+  sol = anagram(s);
   for(auto a: sol) {
     if(check(a, s)==true) {
       f = true;

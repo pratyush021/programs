@@ -1,80 +1,75 @@
 #include<bits/stdc++.h>
-#include<math.h>
 using namespace std;
-#define MAX 10000
-bool check(int arr[], int n) {
-  int sum = 0;
-  for(int i= 0; i < n; i++) {
-    sum += arr[i];
-  }
-  if(sum == 0) {
-    return true;
-  }
-  return false;
-}
-void test_case() {
-  int n, k;
-  cin >> n >> k;
-  int arr[MAX];
-  for(int i=0; i < n; i++) {
-    cin >> arr[i];
-  }
-  int p = 0;
-  int cnt = 0;
-  while(check(arr, n) == false) {
-    int i = 0, count = 0;
-    while(count < k && i < n) {
-      int r = pow(2, p);
-      int temp = arr[i] ^ r;
-      if(arr[i] > temp ) {
-        arr[i] = temp;
-        count++;
-        cnt++;
-      }
-      i++;
-      p++;
+#define MAX 100000
+#define ll long long
+static string s;
+bool check(string a, string s) {
+  for(int i =0; i < s.size(); i++) {
+    if(s[i] == a[i]) {
+      return false;
     }
   }
-  cout << cnt << endl;
-  cout << n << k << endl;
-  // cout <<"cunt" << endl;
+  return true;
+}
+void rotate(string &s)
+{
+    reverse(s.begin(), s.begin()+1);
+    reverse(s.begin()+1, s.end());
+    reverse(s.begin(), s.end());
+}
+set<string> anagram(string input){
+  // std::vector<string> ss;
+  set<string> ss;
+    sort(input.begin(), input.end());
+    do
+
+        // ss.push_back(input);
+        // if(s[0] != input[0] && s[s.size()-1] != input[s.size()-1]) {
+        if(check(input, s)==true) {
+
+          ss.insert(input);
+
+        }
+    while(next_permutation(input.begin(), input.end()));
+    return ss;
 }
 
-void test(){
-  int n;
-  cin >> n;
-  int s=0, m=0, l=0;
-  int mm, temp;
-  temp = n;
-  if(n == 0) {
-    return 0;
-  }
-  if(n<=6) {
-    return 15;
-  }
-  while(temp >= 10) {
-    temp = temp / 10;
-    l++;
-  }
-  while(temp >= 8 && temp < 10) {
-    temp = temp / 8;
-    m++;
-  }
-  while (temp > 0) {
-    temp = temp / 6;
-    s++;
-  }
-  l = l * 15;
-  m = m * 20;
-  s = s * 25;
-  mm = min(s, m);
-  return min(l, mm);
+void test_case() {
+  // string s;
+  cin >> s;
+  string a  = s;
+  // std::vector<string> sol;
+  // sol = anagram(s);
+  // for(auto a: sol) {
+  //   if(check(a, s)==true) {
+  //     f = true;
+  //     cout << a << endl;
+  //     return;
+  //   }
+  // }
+  // if(f == false) {
+  //   cout << "IMPOSSIBLE" << endl;
+  // }
+  set<string> sol = anagram(a);
+  set<string> ::iterator itr;
+  cout << sol.size() << endl;
+  for (itr = sol.begin(); itr != sol.end(); itr++)
+    {
+        cout << *itr<<" ";
+    }
+    cout << endl;
 }
 
-int main() {
-  int t;
-  cin >> t;
-  for(int i =0; i < t; i++) {
-    test_case();
-  }
+int main(){
+	int t;
+	cin >> t;
+	for(int i = 0; i < t; i++) {
+		cout << "Case #"<<i+1<<": ";
+		test_case();
+		// cout << endl;
+		// cout << test_case() << endl;
+		// cout << debug() << endl;
+	}
+
+	return 0;
 }
