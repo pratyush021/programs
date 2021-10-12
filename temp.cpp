@@ -34,42 +34,25 @@ set<string> anagram(string input){
     return ss;
 }
 
-void test_case() {
-  // string s;
-  cin >> s;
-  string a  = s;
-  // std::vector<string> sol;
-  // sol = anagram(s);
-  // for(auto a: sol) {
-  //   if(check(a, s)==true) {
-  //     f = true;
-  //     cout << a << endl;
-  //     return;
-  //   }
-  // }
-  // if(f == false) {
-  //   cout << "IMPOSSIBLE" << endl;
-  // }
-  set<string> sol = anagram(a);
-  set<string> ::iterator itr;
-  cout << sol.size() << endl;
-  for (itr = sol.begin(); itr != sol.end(); itr++)
-    {
-        cout << *itr<<" ";
+int test_case(int n)
+{
+    int f1 = 0, f2 = 1, i;
+    int sum = 0;
+    if (n < 1)
+        return sum; 
+    sum += f1;
+    for (i = 1; i < n; i++) {
+        sum += f2;
+        int next = f1 + f2;
+        f1 = f2;
+        f2 = next;
     }
-    cout << endl;
 }
 
 int main(){
 	int t;
 	cin >> t;
-	for(int i = 0; i < t; i++) {
-		cout << "Case #"<<i+1<<": ";
-		test_case();
-		// cout << endl;
-		// cout << test_case() << endl;
-		// cout << debug() << endl;
-	}
+	cout << test_case(t) << endl;
 
 	return 0;
 }
